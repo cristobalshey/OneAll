@@ -1,0 +1,213 @@
+/* =====================
+   General Page
+===================== */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #B8F1A0, #76D36B, #54B948, #D9F99D);
+  background-size: 300% 300%;
+  animation: greenGradientBG 20s ease infinite;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes greenGradientBG {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* =====================
+   Form Container
+===================== */
+.profile-form {
+  background: #fff;
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.18);
+  padding: 40px 28px;
+  max-width: 480px;
+  width: 95%;
+  animation: fadeSlideIn 1s ease-out;
+}
+
+@keyframes fadeSlideIn {
+  0% { opacity: 0; transform: translateY(40px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+h2 {
+  text-align: center;
+  font-weight: 700;
+  font-size: 1.6rem;
+  color: #355C26;
+  margin-bottom: 8px;
+}
+
+p.subtitle {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #355C26;
+  margin-bottom: 24px;
+}
+
+/* =====================
+   Form Elements
+===================== */
+.form-group {
+  margin-bottom: 18px;
+  display: flex;
+  flex-direction: column;
+}
+
+label {
+  font-weight: 600;
+  color: #355C26;
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+input,
+select,
+textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 12px;
+  font-family: inherit;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: #54B948;
+}
+
+/* =====================
+   File Upload
+===================== */
+.file-input {
+  border: 2px dashed #bbb;
+  padding: 14px;
+  text-align: center;
+  cursor: pointer;
+  border-radius: 12px;
+  transition: 0.3s;
+  font-size: 0.9rem;
+}
+
+.file-input:hover {
+  border-color: #54B948;
+  background: #f6fff6;
+}
+
+/* =====================
+   Gamification Badges
+===================== */
+.badge-select {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.badge-option {
+  flex: 1;
+  text-align: center;
+  padding: 12px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  font-weight: 600;
+  transition: all 0.3s;
+  border: 2px solid transparent;
+}
+
+.badge-option input {
+  display: none;
+}
+
+.badge-option i {
+  font-size: 1.4rem;
+  margin-bottom: 6px;
+  display: block;
+}
+
+.badge-option.beginner { background: #E8F5E9; color: #2E7D32; }
+.badge-option.developing { background: #FFF8E1; color: #FF8F00; }
+.badge-option.active { background: #E3F2FD; color: #1565C0; }
+.badge-option.master { background: #F3E5F5; color: #6A1B9A; }
+
+.badge-option input:checked + span {
+  border: 2px solid #355C26;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* =====================
+   Buttons
+===================== */
+.submit-btn {
+  background: linear-gradient(to right, #76D36B, #54B948);
+  color: #fff;
+  border: none;
+  border-radius: 16px;
+  font-size: 1rem;
+  font-weight: 600;
+  padding: 14px 0;
+  width: 100%;
+  margin-top: 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.submit-btn:hover {
+  background: linear-gradient(to right, #54B948, #76D36B);
+  transform: translateY(-2px);
+}
+
+.back-btn {
+  background: none;
+  border: none;
+  color: #355C26;
+  font-size: 0.95rem;
+  margin-top: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.back-btn:hover {
+  color: #54B948;
+}
+
+.back-btn i {
+  font-size: 1rem;
+}
+
+/* =====================
+   Mobile Responsive
+===================== */
+@media (max-width: 480px) {
+  .profile-form {
+    padding: 28px 18px;
+  }
+  h2 {
+    font-size: 1.3rem;
+  }
+  p.subtitle {
+    font-size: 0.85rem;
+  }
+  .submit-btn {
+    font-size: 0.9rem;
+    padding: 12px 0;
+  }
+}

@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>User Profile</title>
+
+  <!-- Poppins font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    /* Background */
+    body {
+      margin: 0;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #B8F1A0, #76D36B, #54B948, #D9F99D);
+      background-size: 300% 300%;
+      animation: greenGradientBG 18s ease infinite;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    @keyframes greenGradientBG {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    /* Profile Card */
+    .profile-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      padding: 32px 28px;
+      max-width: 500px;
+      width: 95%;
+      text-align: center;
+      animation: fadeIn 1s ease-out;
+      position: relative;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Back button */
+    .back-btn {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #F6FFF1;
+      color: #355C26;
+      font-size: 0.9rem;
+      font-weight: 600;
+      padding: 8px 14px;
+      border-radius: 12px;
+      text-decoration: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      transition: all 0.25s ease;
+    }
+    .back-btn:hover {
+      background: #E6F8E4;
+      transform: translateY(-2px);
+    }
+
+    /* Avatar */
+    .avatar {
+      width: 110px;
+      height: 110px;
+      border-radius: 50%;
+      border: 4px solid #76D36B;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #F6FFF1;
+      margin: 16px auto;
+      font-size: 2.7rem;
+      color: #54B948;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    .username {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #355C26;
+      margin-bottom: 6px;
+    }
+
+    .user-id {
+      font-size: 0.85rem;
+      color: #5f8150;
+      margin-bottom: 22px;
+    }
+
+    /* Badge Base */
+    .badge {
+      position: absolute;
+      top: -15px;
+      right: -15px;
+      font-size: 0.8rem;
+      font-weight: bold;
+      padding: 8px 14px;
+      border-radius: 20px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .badge i { font-size: 1rem; }
+
+    /* Badge Levels */
+    .badge.beginner {
+      background: #E8F8E4;
+      color: #2E7D32;
+    }
+    .badge.beginner i { color: #2E7D32; }
+
+    .badge.developing {
+      background: #E3F2FD;
+      color: #1565C0;
+    }
+    .badge.developing i { color: #1565C0; }
+
+    .badge.active {
+      background: #F3E5F5;
+      color: #6A1B9A;
+    }
+    .badge.active i { color: #6A1B9A; }
+
+    .badge.master {
+      background: #FFD700;
+      color: #333;
+    }
+    .badge.master i { color: #C28F00; }
+
+    /* Info Section */
+    .info-section {
+      background: #F6FFF1;
+      padding: 16px 20px;
+      border-radius: 16px;
+      margin-bottom: 18px;
+      text-align: left;
+      box-shadow: inset 0 2px 6px rgba(0,0,0,0.05);
+    }
+
+    .info-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 14px;
+    }
+
+    .info-row i {
+      font-size: 1.1rem;
+      color: #54B948;
+      background: #E6F8E4;
+      padding: 8px;
+      border-radius: 50%;
+    }
+
+    .info-label {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #355C26;
+      display: block;
+    }
+
+    .info-value {
+      font-size: 0.9rem;
+      color: #213b18;
+    }
+
+    /* Stats Section */
+    .stats {
+      display: flex;
+      justify-content: space-around;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+    .stat-card {
+      flex: 1;
+      background: #E6F8E4;
+      border-radius: 16px;
+      padding: 16px;
+      text-align: center;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .stat-card i {
+      font-size: 1.4rem;
+      color: #54B948;
+      margin-bottom: 8px;
+    }
+    .stat-value {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #355C26;
+    }
+    .stat-label {
+      font-size: 0.85rem;
+      color: #355C26;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: linear-gradient(to right, #76D36B, #54B948);
+      color: #fff;
+      font-weight: 600;
+      padding: 12px 20px;
+      border-radius: 16px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 0.95rem;
+    }
+    .btn:hover {
+      background: linear-gradient(to right, #54B948, #76D36B);
+      transform: translateY(-2px);
+    }
+
+    /* Mobile */
+    @media(max-width: 480px) {
+      .profile-card { padding: 24px; }
+      .avatar { width: 90px; height: 90px; font-size: 2rem; }
+      .username { font-size: 1.2rem; }
+      .stats { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="profile-card">
+    <!-- Back Button -->
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-left"></i> Back</a>
+
+    <!-- Gamification Badge (change class: beginner, developing, active, master) -->
+    <div class="badge active">
+      <i class="fa-solid fa-book"></i> Active Learner
+    </div>
+
+    <!-- Avatar -->
+    <div class="avatar">
+      <i class="fa-solid fa-user-astronaut"></i>
+    </div>
+
+    <div class="username">Lycca Impas</div>
+    <div class="user-id">User ID: U12345</div>
+
+    <!-- Stats -->
+    <div class="stats">
+      <div class="stat-card">
+        <i class="fa-solid fa-coins"></i>
+        <div class="stat-value">1,250</div>
+        <div class="stat-label">Waste Points</div>
+      </div>
+      <div class="stat-card">
+        <i class="fa-solid fa-weight-hanging"></i>
+        <div class="stat-value">78 kg</div>
+        <div class="stat-label">Total Waste</div>
+      </div>
+    </div>
+
+    <!-- Info Section -->
+    <div class="info-section">
+      <div class="info-row">
+        <i class="fa-solid fa-location-dot"></i>
+        <div>
+          <span class="info-label">Address</span>
+          <span class="info-value">Davao City, Philippines</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <i class="fa-brands fa-google-wallet"></i>
+        <div>
+          <span class="info-label">GCash Number</span>
+          <span class="info-value">+63 912 345 6789</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <i class="fa-solid fa-qrcode"></i>
+        <div>
+          <span class="info-label">QR Linked</span>
+          <span class="info-value">Yes</span>
+        </div>
+      </div>
+      <div class="info-row">
+        <i class="fa-solid fa-id-card"></i>
+        <div>
+          <span class="info-label">Proof of ID</span>
+          <span class="info-value">Verified</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Button -->
+    <a href="#" class="btn"><i class="fa-solid fa-pen-to-square"></i> Edit Profile</a>
+  </div>
+
+</body>
+</html>
