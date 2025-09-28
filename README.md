@@ -1,6 +1,6 @@
 # OneAll Computer Store
 
-This repository contains the **User** and **Admin** projects for the OneAll Computer Store system.
+This repository contains the **User** and **Admin** projects for the OneAll system.
 
 ## Folder Structure
 - admin/  → Admin dashboard
