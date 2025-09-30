@@ -2,6 +2,8 @@
 session_start();
 include 'connect.php'; // DB connection
 
+
+$conn = new mysqli($host, $user, $pass, $db);
 if (isset($_POST['add_quiz'])) {
     $title       = trim($_POST['quiz_title']);
     $desc        = trim($_POST['quiz_description']);

@@ -1,8 +1,9 @@
 <?php
-$host = "localhost";
-$user = "root";
-$pass = "";
-$db   = "try";
+$host = "if0_40056516_try"; 
+$user = "if0_40056516"; 
+$pass = "FBLafdC4CWG"; 
+$db   = "if0_40056516_try"; 
+
 
 $conn = new mysqli($host, $user, $pass, $db);
 
